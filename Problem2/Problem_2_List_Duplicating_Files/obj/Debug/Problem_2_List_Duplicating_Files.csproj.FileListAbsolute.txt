@@ -1,0 +1,6 @@
+c:\users\belezirev\documents\visual studio 2013\Projects\HackBG\Problem_2_List_Duplicating_Files\Problem_2_List_Duplicating_Files\bin\Debug\Problem_2_List_Duplicating_Files.exe.config
+c:\users\belezirev\documents\visual studio 2013\Projects\HackBG\Problem_2_List_Duplicating_Files\Problem_2_List_Duplicating_Files\bin\Debug\Problem_2_List_Duplicating_Files.exe
+c:\users\belezirev\documents\visual studio 2013\Projects\HackBG\Problem_2_List_Duplicating_Files\Problem_2_List_Duplicating_Files\bin\Debug\Problem_2_List_Duplicating_Files.pdb
+c:\users\belezirev\documents\visual studio 2013\Projects\HackBG\Problem_2_List_Duplicating_Files\Problem_2_List_Duplicating_Files\obj\Debug\Problem_2_List_Duplicating_Files.exe
+c:\users\belezirev\documents\visual studio 2013\Projects\HackBG\Problem_2_List_Duplicating_Files\Problem_2_List_Duplicating_Files\obj\Debug\Problem_2_List_Duplicating_Files.pdb
+C:\Users\Belezirev\Documents\Visual Studio 2013\Projects\HackBG\Problem_2_List_Duplicating_Files\Problem_2_List_Duplicating_Files\obj\Debug\Problem_2_List_Duplicating_Files.csprojResolveAssemblyReference.cache
