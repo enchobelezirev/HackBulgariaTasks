@@ -23,7 +23,7 @@ namespace Problem1_Primes_In_An_Interval
         static void primesInAnInterval(int from, int to)
         {
             string invalidInput = "Invalid input";
-            if (from >= to)
+            if (from > to)
             {
                 Console.WriteLine(invalidInput);
                 return;
@@ -38,7 +38,7 @@ namespace Problem1_Primes_In_An_Interval
             {
                 if (isPrime(iterator))
                 {
-                    Console.Write(iterator+" ");
+                    Console.Write(iterator + " ");
                 }
             }
         }
