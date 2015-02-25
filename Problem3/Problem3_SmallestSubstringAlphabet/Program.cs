@@ -19,6 +19,7 @@ namespace Problem3_SmallestSubstringAlphabet
         static List<char> findAlphabetInAnyHalf(int start, int end, string str)
         {
             List<char> lettersFound = new List<char>();
+            List<char> alphabetLettersFoundList = new List<char>();
             bool addElement = false;
             int alphabetLettersFound = 0;
             for (int index = start; index < end; index++)
@@ -29,9 +30,17 @@ namespace Problem3_SmallestSubstringAlphabet
                 }
                 if (str[index] >= 'a' && str[index] <= 'z')
                 {
-                    lettersFound.Add(str[index]);
-                    addElement = true;
-                    alphabetLettersFound++;
+                    if (!alphabetLettersFoundList.Contains(str[index]))
+                    {
+                        lettersFound.Add(str[index]);
+                        addElement = true;
+                        alphabetLettersFound++;
+                        alphabetLettersFoundList.Add(str[index]);
+                    }
+                    else
+                    {
+                        lettersFound.Add(str[index]);
+                    }
                 }
                 else if (addElement)
                 {
@@ -45,11 +54,20 @@ namespace Problem3_SmallestSubstringAlphabet
         static int checkHalfSubstring(int startIndex, int endIndex, string str)
         {
             int symbolsCounter = 0;
+            string halfSubstr = str.Substring(startIndex, endIndex - startIndex);
             for (int index = startIndex; index < endIndex; index++)
             {
-                if (str[index] >= 'a' && str[index] <= 'z')
+                if (str[index] == 'z')
                 {
                     symbolsCounter++;
+                }
+                if (str[index] >= 'a' && str[index] <= 'z')
+                {
+                    int nextCharAscii = str[index] + 1;
+                    if (halfSubstr.Contains((char)nextCharAscii))
+                    {
+                        symbolsCounter++;
+                    }
                 }
             }
             return symbolsCounter;
@@ -108,6 +126,7 @@ namespace Problem3_SmallestSubstringAlphabet
                 }
                 else if (firstHalfAlphabetLettersCount != ALPHABET_LETTERS_COUNT && secondHalfAlphabetLettersCount != ALPHABET_LETTERS_COUNT)
                 {
+                    List<char> lettersAlphabetInHalfs = new List<char>();
                     int endIndexForTheFirstHalf = 0;
                     int startIndexForTheSecondHalf = 0;
                     for (int index = middle; index < str.Length; index++)
@@ -119,12 +138,21 @@ namespace Problem3_SmallestSubstringAlphabet
                         }
                         if (str[index] >= 'a' && str[index] <= 'z')
                         {
-                            firstHalfAlphabetLettersCount++;
+                            if (!lettersAlphabetInHalfs.Contains(str[index]))
+                            {
+                                firstHalfAlphabetLettersCount++;
+                                lettersAlphabetInHalfs.Add(str[index]);
+                            }
+                            
                         }
                     }
 
                     List<char> lettersInFirstHalf = findAlphabetInAnyHalf(0, endIndexForTheFirstHalf, str);
-
+                    lettersAlphabetInHalfs = new List<char>();
+                    for (int index = str.Length-1; index >= middle; index--)
+                    {
+                        lettersAlphabetInHalfs.Add(str[index]);
+                    }
                     for (int index = middle; index >= 0; index--)
                     {
                         if (secondHalfAlphabetLettersCount == ALPHABET_LETTERS_COUNT)
@@ -134,7 +162,12 @@ namespace Problem3_SmallestSubstringAlphabet
                         }
                         if (str[index] >= 'a' && str[index] <= 'z')
                         {
-                            secondHalfAlphabetLettersCount++;
+                            if (!lettersAlphabetInHalfs.Contains(str[index]))
+                            {
+                                secondHalfAlphabetLettersCount++;
+                                lettersAlphabetInHalfs.Add(str[index]);
+                            }
+                            
                         }
 
                     }
